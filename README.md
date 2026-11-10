@@ -18,3 +18,17 @@ agent = "simple"
 - GUI chat now returns prose instead of raw tool JSON
 - Your three example prompts now answer normally
 - Server PID reports `Agent: simple` on startup
+
+## Install / Download
+
+OpenJarvis is available as a desktop application with automatic model downloading, or via the source code you just pushed to GitHub.
+
+| Platform | Install |
+|---|---|
+| **Windows** | `irm https://open-jarvis.github.io/OpenJarvis/install.ps1 | iex` (PowerShell) or use the `.exe` from the [latest release](https://github.com/open-jarvis/OpenJarvis/releases) |
+| **macOS / Linux / WSL2** | `curl -fsSL https://open-jarvis.github.io/OpenJarvis/install.sh | bash` |
+| **From source** | `git clone https://github.com/open-jarvis/OpenJarvis.git && cd OpenJarvis && uv sync --python 3.12` |
+
+After install, start the daemon with `jarvis start` and the GUI with `jarvis gui`.
+
+The config fix (`agent = "simple"` in `[server]` section of `~/.openjarvis/config.toml`) is already included in this repository.
